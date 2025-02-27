@@ -26,10 +26,13 @@ const rows = [
 const paginationModel = { page: 0, pageSize: 5 };
 
 export default async function ProductTable() {
+  const data = await fetch('https://fakestoreapi.com/products')
+  const products = await data.json()
+
   return (
     <Paper sx={{ height: 400, width: '100%' }}>
       <DataGrid
-        rows={rows}
+        rows={products}
         columns={columns}
         initialState={{ pagination: { paginationModel } }}
         pageSizeOptions={[5, 10]}
