@@ -11,22 +11,10 @@ const columns: GridColDef[] = [
   { field: 'description', headerName: 'Description', width: 160, sortable: false},
 ];
 
-const rows = [
-  { id: 1, title: 'Snow', price: 'Jon', category: 35 },
-  { id: 2, title: 'Lannister', price: 'Cersei', category: 42 },
-  { id: 3, title: 'Lannister', price: 'Jaime', category: 45 },
-  { id: 4, title: 'Stark', price: 'Arya', category: 16 },
-  { id: 5, title: 'Targaryen', price: 'Daenerys', category: null },
-  { id: 6, title: 'Melisandre', price: null, category: 150 },
-  { id: 7, title: 'Clifford', price: 'Ferrara', category: 44 },
-  { id: 8, title: 'Frances', price: 'Rossini', category: 36 },
-  { id: 9, title: 'Roxie', price: 'Harvey', category: 65 },
-];
-
 const paginationModel = { page: 0, pageSize: 5 };
 
 export default async function ProductTable() {
-  const data = await fetch('https://fakestoreapi.com/products')
+  const data = await fetch(`${process.env.API_HOST}/products`)
   const products = await data.json()
 
   return (
