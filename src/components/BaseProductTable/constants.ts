@@ -1,0 +1,1 @@
+export const PRODUCT_PAGINATION = { page: 0, pageSize: 5 };
